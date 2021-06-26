@@ -12,7 +12,8 @@ namespace WindowsFormsAppHW1_5
 {
     public partial class Form1 : Form
     {
-        const int near = 5;
+        const int near = 20;
+        const int edgeX = 18, edgeY = 40;
 
         public Form1()
         {
@@ -26,19 +27,23 @@ namespace WindowsFormsAppHW1_5
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            if(button1.Location.X-(Cursor.Position.X - Form1.ActiveForm.Location.X) < near && button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X) > 0)
+            if ((button1.Location.X-(Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) < near && button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) > 0) &&
+                    (button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) < near && (button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) > -near)))
             {
                 button1.Location = new Point(button1.Location.X + 1, button1.Location.Y);
             }
-            else if (button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X) > -near && button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X) < 0)
+            else if ((button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) > -near && button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) < 0) &&
+                (button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) < near && (button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) > -near)))
             {
                 button1.Location = new Point(button1.Location.X - 1, button1.Location.Y);
             }
-            if (button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y) < near && button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y) > 0)
+            if ((button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) < near && button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) > 0) &&
+                (button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) < near && (button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) > -near)))
             {
                 button1.Location = new Point(button1.Location.X, button1.Location.Y + 1);
             }
-            else if (button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y) > -near && button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y) < 0)
+            else if ((button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) > -near && button1.Location.Y - (Cursor.Position.Y - Form1.ActiveForm.Location.Y - edgeY) < 0) &&
+                (button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) < near && (button1.Location.X - (Cursor.Position.X - Form1.ActiveForm.Location.X - edgeX) > -near)))
             {
                 button1.Location = new Point(button1.Location.X, button1.Location.Y - 1);
             }
